@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/navy_dark">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/gold"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تنظیمات ویجت"
+        android:textColor="@color/gray_text"
+        android:textSize="13sp"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_url"
+        android:textColor="@color/gray_text"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp" />
+    <EditText
+        android:id="@+id/etUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_bg"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray_text_dim"
+        android:hint="https://script.google.com/macros/s/xxxx/exec"
+        android:inputType="textUri"
+        android:textSize="13sp"
+        android:layout_marginBottom="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_user"
+        android:textColor="@color/gray_text"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp" />
+    <EditText
+        android:id="@+id/etUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_bg"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray_text_dim"
+        android:hint="نام کاربری شما"
+        android:textSize="13sp"
+        android:layout_marginBottom="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_token"
+        android:textColor="@color/gray_text"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp" />
+    <EditText
+        android:id="@+id/etToken"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_bg"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray_text_dim"
+        android:hint="توکن تولید شده با generateWidgetToken"
+        android:textSize="13sp"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_save_bg"
+        android:text="@string/btn_save"
+        android:textColor="@color/navy_dark"
+        android:textStyle="bold"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp" />
+
+</LinearLayout>
+</ScrollView>

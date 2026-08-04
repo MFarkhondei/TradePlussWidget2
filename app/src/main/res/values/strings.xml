@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ترید پلاس</string>
+    <string name="widget_description">ویجت نمایش دارایی و بازده روزانه ترید پلاس</string>
+    <string name="label_url">آدرس Web App (Apps Script)</string>
+    <string name="label_user">نام کاربری</string>
+    <string name="label_token">توکن ویجت</string>
+    <string name="btn_save">ذخیره و افزودن ویجت</string>
+    <string name="not_configured">برای تنظیم ویجت لمس کنید</string>
+</resources>
