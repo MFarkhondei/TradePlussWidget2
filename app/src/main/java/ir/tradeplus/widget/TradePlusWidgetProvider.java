@@ -93,10 +93,12 @@ public class TradePlusWidgetProvider extends AppWidgetProvider {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         views.setOnClickPendingIntent(R.id.btnRefresh, refreshPending);
 
+        // tapping the total-assets value always lets the user (re)configure the widget
+        openConfigOnTap(context, views, appWidgetId);
+
         if (!WidgetPrefs.isConfigured(context, appWidgetId)) {
             views.setTextViewText(R.id.tvTotalAssets, "0");
             views.setTextViewText(R.id.tvUpdatedAt, context.getString(R.string.not_configured));
-            openConfigOnTap(context, views, appWidgetId);
             manager.updateAppWidget(appWidgetId, views);
             return;
         }

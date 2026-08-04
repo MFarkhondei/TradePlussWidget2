@@ -4,15 +4,11 @@ import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.concurrent.Executors;
 
 public class ConfigActivity extends Activity {
 
@@ -63,23 +59,13 @@ public class ConfigActivity extends Activity {
             return;
         }
 
-        btnSave.setEnabled(false);
-        btnSave.setText("در حال بررسی اتصال...");
-        tvError.setVisibility(View.GONE);
-
-        Handler mainHandler = new Handler(Looper.getMainLooper());
-        Executors.newSingleThreadExecutor().execute(() -> {
-            try {
-                WidgetApi.fetch(url, user, token);
-                mainHandler.post(() -> finishWithSuccess(url, user, token));
-            } catch (Exception e) {
-                mainHandler.post(() -> {
-                    btnSave.setEnabled(true);
-                    btnSave.setText(getString(R.string.btn_save));
-                    showError("اتصال ناموفق بود: " + e.getMessage());
-                });
-            }
-        });
+        // NOTE: we deliberately do NOT test the network connection here before finishing.
+        // Widget-configuration activities must return quickly (some launchers, incl. Samsung
+        // One UI, cancel the "add widget" flow with a generic "Couldn't add widget" error if
+        // the configure Activity takes more than a few seconds) and Apps Script Web Apps can
+        // have a slow cold-start response (several seconds). The actual fetch — with a longer
+        // timeout — happens afterwards in the widget provider itself, which can retry safely.
+        finishWithSuccess(url, user, token);
     }
 
     private void finishWithSuccess(String url, String user, String token) {
